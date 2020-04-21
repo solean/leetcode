@@ -22,6 +22,7 @@ def zigzag_converter(s: str, numRows: int) -> str:
     return zigzag
 
 
+
 class TestZigZagConverter(unittest.TestCase):
 
     def test_1_row(self):

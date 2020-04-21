@@ -1,10 +1,9 @@
-
+import unittest
 
 def romanToInt(s: str) -> int:
     num = 0
     i = 0
 
-    # for i in range(0, len(s)):
     while i < len(s):
         ch = s[i]
         next_ch = s[i + 1] if i < len(s) - 1 else None
@@ -50,13 +49,19 @@ def romanToInt(s: str) -> int:
     return num
 
 
-# Expect: 3
-print(romanToInt('III'))
-# Expect: 4
-print(romanToInt('IV'))
-# Expect: 9
-print(romanToInt('IX'))
-# Expect: 58
-print(romanToInt('LVIII'))
-# Expect: 1994
-print(romanToInt('MCMXCIV'))
+
+class TestRomanToInt(unittest.TestCase):
+    def test_1(self):
+        self.assertEqual(romanToInt('III'), 3)
+    def test_2(self):
+        self.assertEqual(romanToInt('IV'), 4)
+    def test_3(self):
+        self.assertEqual(romanToInt('IX'), 9)
+    def test_4(self):
+        self.assertEqual(romanToInt('LVIII'), 58)
+    def test_5(self):
+        self.assertEqual(romanToInt('MCMXCIV'), 1994)
+
+
+if __name__ == '__main__':
+    unittest.main()

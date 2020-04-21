@@ -22,8 +22,6 @@ def reverse_integer(x: int) -> int:
 
 
 
-
-
 class TestReverseInteger(unittest.TestCase):
 
     def test_standard(self):

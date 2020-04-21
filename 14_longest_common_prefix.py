@@ -1,5 +1,5 @@
 from typing import List
-
+import unittest
 
 def longest_common_prefix(strs: List[str]) -> str:
     if strs is None or len(strs) == 0:
@@ -28,14 +28,21 @@ def longest_common_prefix(strs: List[str]) -> str:
             prefix += ch
             i += 1
 
-    print(prefix)
     return prefix
 
 
 
-# Expect: 'fl'
-longest_common_prefix(['flower', 'flow', 'flight'])
-# Expect: ''
-longest_common_prefix(['dog', 'racecar', 'car'])
-# Expect: 'c'
-longest_common_prefix(['c', 'c'])
+class TestLongestCommonPrefix(unittest.TestCase):
+
+    def test_standard(self):
+        self.assertEqual(longest_common_prefix(['flower', 'flow', 'flight']), 'fl')
+
+    def test_none(self):
+        self.assertEqual(longest_common_prefix(['dog', 'racecar', 'car']), '')
+
+    def test_single_char(self):
+        self.assertEqual(longest_common_prefix(['c', 'c']), 'c')
+
+
+if __name__ == '__main__':
+    unittest.main()

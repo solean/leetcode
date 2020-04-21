@@ -1,4 +1,4 @@
-
+import unittest
 
 def lengthOfLongestSubstring(s: str) -> int:
     longest = 1
@@ -24,15 +24,24 @@ def lengthOfLongestSubstring(s: str) -> int:
                 seen[ch] = True
         i += 1
 
-    print(longest)
     return longest
 
 
-# Expect: 3
-lengthOfLongestSubstring('abcabcbb')
-# Expect: 1
-lengthOfLongestSubstring('bbbbb')
-# Expect: 3
-lengthOfLongestSubstring('pwwkew')
-# Expect: 2
-lengthOfLongestSubstring('au')
+
+class TestLengthOfLongestSubstring(unittest.TestCase):
+
+    def test_1(self):
+        self.assertEqual(lengthOfLongestSubstring('abcabcbb'), 3)
+
+    def test_2(self):
+        self.assertEqual(lengthOfLongestSubstring('bbbbb'), 1)
+
+    def test_3(self):
+        self.assertEqual(lengthOfLongestSubstring('pwwkew'), 3)
+
+    def test_4(self):
+        self.assertEqual(lengthOfLongestSubstring('au'), 2)
+
+
+if __name__ == '__main__':
+    unittest.main()
