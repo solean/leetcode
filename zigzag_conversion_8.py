@@ -1,4 +1,3 @@
-import unittest
 
 def zigzag_converter(s: str, numRows: int) -> str:
     if numRows == 1:
@@ -21,19 +20,3 @@ def zigzag_converter(s: str, numRows: int) -> str:
     zigzag = ''.join(rows)
     return zigzag
 
-
-
-class TestZigZagConverter(unittest.TestCase):
-
-    def test_1_row(self):
-        self.assertEqual(zigzag_converter('AB', 1), 'AB')
-
-    def test_3_rows(self):
-        self.assertEqual(zigzag_converter('PAYPALISHIRING', 3), 'PAHNAPLSIIGYIR')
-
-    def test_4_rows(self):
-        self.assertEqual(zigzag_converter('PAYPALISHIRING', 4), 'PINALSIGYAHRPI')
-
-
-if __name__ == '__main__':
-    unittest.main()

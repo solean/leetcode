@@ -1,4 +1,3 @@
-import unittest
 
 def isPalindrome(x: int) -> bool:
     s = str(x)
@@ -26,18 +25,3 @@ def isPalindrome(x: int) -> bool:
 def isPalindromeWithoutString(x: int) -> bool:
     return False
 
-
-
-class TestIsPalindrome(unittest.TestCase):
-
-    def test_positive(self):
-        self.assertEqual(isPalindrome(121), True)
-        self.assertEqual(isPalindrome(10), False)
-        self.assertEqual(isPalindrome(1001), True)
-
-    def test_negative(self):
-        self.assertEqual(isPalindrome(-121), False)
-
-
-if __name__ == '__main__':
-    unittest.main()

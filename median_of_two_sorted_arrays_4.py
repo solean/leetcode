@@ -1,6 +1,5 @@
 from typing import List
 import math
-import unittest
 
 # This solution has O(n+m) time. Overall run time complexity should be O(log (m+n))
 def findMedianSortedArraysBad(nums1: List[int], nums2: List[int]) -> float:
@@ -90,22 +89,3 @@ def findMedianSortedArrays(nums1: List[int], nums2: List[int]):
 
     return median
 
-
-
-class TestFindMedianSortedArrays(unittest.TestCase):
-
-    def test_1(self):
-        self.assertEqual(findMedianSortedArraysBad([1, 3], [2]), 2.0)
-
-    def test_2(self):
-        self.assertEqual(findMedianSortedArraysBad([1, 2], [3, 4]), 2.5)
-
-    def test_3(self):
-        self.assertEqual(findMedianSortedArraysBad([3, 4], [1, 2]), 2.5)
-
-    def test_4(self):
-        self.assertEqual(findMedianSortedArraysBad([1, 2, 2], [1, 2, 3]), 2.0)
-
-
-if __name__ == '__main__':
-    unittest.main()

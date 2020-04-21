@@ -1,4 +1,3 @@
-import unittest
 
 def reverse_integer(x: int) -> int:
     is_negative = x < 0
@@ -20,19 +19,3 @@ def reverse_integer(x: int) -> int:
 
     return n
 
-
-
-class TestReverseInteger(unittest.TestCase):
-
-    def test_standard(self):
-        self.assertEqual(reverse_integer(123), 321)
-
-    def test_negative(self):
-        self.assertEqual(reverse_integer(-123), -321)
-
-    def test_leading_zero(self):
-        self.assertEqual(reverse_integer(120), 21)
-
-
-if __name__ == '__main__':
-    unittest.main()
