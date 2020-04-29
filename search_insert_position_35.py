@@ -1,0 +1,8 @@
+from typing import List
+
+def search_insert(nums: List[int], target: int) -> int:
+    for i in range(0, len(nums)):
+        if nums[i] >= target:
+            return i
+    return len(nums)
+
