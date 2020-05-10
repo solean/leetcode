@@ -1,6 +1,6 @@
 from misc import TreeNode
 
-def is_same_tree(p: TreeNode, q: TreeNode) -> bool:
+def is_same_tree_iter(p: TreeNode, q: TreeNode) -> bool:
     p_str = stringify_tree(p)
     q_str = stringify_tree(q)
 
@@ -24,4 +24,13 @@ def stringify_tree(node: TreeNode) -> str:
         current_level = next_level
 
     return tree_str
+
+# Better recursive solution
+def is_same_tree(p: TreeNode, q: TreeNode) -> bool:
+    if not p or not q:
+        return p is None and q is None
+    if p.val != q.val:
+        return False
+
+    return is_same_tree(p.left, q.left) and is_same_tree(p.right, q.right)
 
