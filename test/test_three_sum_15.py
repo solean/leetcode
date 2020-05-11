@@ -9,5 +9,5 @@ class TestThreeSum(unittest.TestCase):
             (-1, 0, 1),
             (-1, -1, 2)
         }
-        self.assertEquals(three_sum(nums), expected)
+        self.assertEqual(three_sum(nums), expected)
 

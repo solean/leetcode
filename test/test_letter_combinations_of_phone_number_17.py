@@ -5,5 +5,5 @@ class TestLetterCombinations(unittest.TestCase):
 
     def test_1(self):
         combinations = ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"]
-        self.assertEquals(letter_combinations("23"), combinations)
+        self.assertEqual(letter_combinations("23"), combinations)
 

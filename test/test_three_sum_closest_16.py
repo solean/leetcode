@@ -7,5 +7,5 @@ class TestThreeSumClosest(unittest.TestCase):
         nums = [-1, 2, 1, -4]
         target = 1
 
-        self.assertEquals(three_sum_closest(nums, target), 2)
+        self.assertEqual(three_sum_closest(nums, target), 2)
 

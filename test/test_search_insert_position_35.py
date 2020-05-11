@@ -4,14 +4,14 @@ import unittest
 class TestSearchInsertPosition(unittest.TestCase):
 
     def test_1(self):
-        self.assertEquals(search_insert([1,3,5,6], 5), 2)
+        self.assertEqual(search_insert([1,3,5,6], 5), 2)
     
     def test_2(self):
-        self.assertEquals(search_insert([1,3,5,6], 2), 1)
+        self.assertEqual(search_insert([1,3,5,6], 2), 1)
     
     def test_3(self):
-        self.assertEquals(search_insert([1,3,5,6], 7), 4)
+        self.assertEqual(search_insert([1,3,5,6], 7), 4)
     
     def test_4(self):
-        self.assertEquals(search_insert([1,3,5,6], 0), 0)
+        self.assertEqual(search_insert([1,3,5,6], 0), 0)
 
