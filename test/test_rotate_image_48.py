@@ -23,8 +23,8 @@ class TestRotateImage(unittest.TestCase):
 
     def test_2(self):
         matrix = [
-            [ 5, 1,  9, 11],
-            [ 2, 4,  8, 10],
+            [5, 1,  9, 11],
+            [2, 4,  8, 10],
             [13, 3,  6, 7],
             [15, 14, 12, 16]
         ]
