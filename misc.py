@@ -1,3 +1,5 @@
+from typing import List
+
 
 class ListNode:
     def __init__(self, x, next=None):
@@ -19,4 +21,11 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
+
+
+class Employee:
+    def __init__(self, id: int, importance: int, subordinates: List[int]):
+        self.id = id
+        self.importance = importance
+        self.subordinates = subordinates
 
