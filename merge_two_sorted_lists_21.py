@@ -1,4 +1,4 @@
-from misc import ListNode, stringify_list
+from misc import ListNode
 
 def merge_two_lists(l1: ListNode, l2: ListNode) -> ListNode:
     i = l1
