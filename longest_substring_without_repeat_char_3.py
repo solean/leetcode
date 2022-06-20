@@ -1,27 +1,16 @@
 
 def lengthOfLongestSubstring(s: str) -> int:
-    longest = 1
-    l = len(s)
-    if l == 0:
-        return 0
-    elif l == 1:
-        return 1
+    l = 0
+    res = 0
+    h = {}
 
-    i = 0
-    while i < l:
-        seen = {}
-        for j in range(i, l):
-            ch = s[j]
-            if ch in seen:
-                if j - i > longest:
-                    longest = j - i
-                break
-            elif j == l - 1:
-                if j - i + 1 > longest:
-                    longest = j - i + 1
-            else:
-                seen[ch] = True
-        i += 1
+    for r in range(len(s)):
+        ch = s[r]
+        while ch in h:
+            h.pop(s[l])
+            l += 1
 
-    return longest
+        h[ch] = True
+        res = max(res, r - l + 1)
 
+    return res
