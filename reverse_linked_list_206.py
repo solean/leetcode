@@ -1,20 +1,12 @@
 from misc import ListNode
 
 def reverse(head: ListNode) -> ListNode:
-    if not head or not head.next:
-        return head
-
-    prev = head
-    head = head.next
-    prev.next = None
+    prev = None
 
     while head:
-        nxt = head.nxt
+        nxt = head.next
         head.next = prev
         prev = head
-        if nxt:
-            head = nxt
-        else:
-            break
+        head = nxt
 
-    return head
+    return prev
