@@ -15,6 +15,18 @@ def stringify_list(l: ListNode) -> str:
         l = l.next
     return s
 
+def build_linked_list(arr: List) -> ListNode:
+    if not arr: return None
+
+    head = ListNode(arr[0])
+
+    node = head
+    for i in range(1, len(arr)):
+        node.next = ListNode(arr[i])
+        node = node.next
+
+    return head
+
 
 # Binary tree node
 class TreeNode:
