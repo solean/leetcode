@@ -2,15 +2,10 @@ from typing import List
 
 def hIndex(citations: List[int]) -> int:
     n = len(citations)
-    citations.sort(reverse=True)
+    citations.sort()
 
-    for i in range(n, 0, -1):
-        for j in range(n):
-            if citations[j] >= i:
-                if j + 1 == i:
-                    return i
-                continue
-            else:
-                break
+    for i in range(n):
+        if citations[i] >= n - i:
+            return n - i
     
     return 0
