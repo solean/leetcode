@@ -1,26 +1,19 @@
 from typing import List
-import math
 
-# O(n) solution
-def search_insert_o_n(nums: List[int], target: int) -> int:
-    for i in range(0, len(nums)):
-        if nums[i] >= target:
-            return i
-    return len(nums)
-
-# O(log n) solution (binary search)
+# If target is not present in nums, return the index where it would be if inserted
 def search_insert(nums: List[int], target: int) -> int:
-    l = 0
-    h = len(nums) - 1
+    i = 0
+    j = len(nums) - 1
 
-    while l <= h:
-        mid = math.floor((l + h ) / 2)
-        if nums[mid] < target:
-            l = mid + 1
-        elif nums[mid] > target:
-            h = mid - 1
+    while i < j:
+        mid = (i + j) // 2
+        if target > nums[mid]:
+            i = mid + 1
+        elif target < nums[mid]:
+            j = mid - 1
         else:
             return mid
 
-    return l
+    # If this is reached, target was not found
+    return i + 1 if target > nums[i] else i
 
