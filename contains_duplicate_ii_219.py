@@ -1,5 +1,6 @@
 from typing import List
 
+# Sliding window solution
 def containsNearbyDuplicate(nums: List[int], k: int) -> bool:
     curr = set()
 
@@ -24,4 +25,19 @@ def containsNearbyDuplicate(nums: List[int], k: int) -> bool:
         j += 1
 
     return Fals
+
+
+# Simpler hashmap solution
+def containsNearbyDuplicateII(nums: List[int], k: int) -> bool:
+    mp = defaultdict(int)
+
+    for i in range(len(nums)):
+        n = nums[i]
+
+        if n in mp and abs(mp[n] - i) <= k:
+            return True
+
+        mp[n] = i
+
+    return False
 
