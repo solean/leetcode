@@ -21,3 +21,14 @@ def timeRequiredToBuy(tickets: List[int], k: int) -> int:
             break
 
     return tix
+
+def timeRequiredToBuyOptimal(tickets: List[int], k: int) -> int:
+    tix = 0
+
+    for i in range(len(tickets)):
+        if i <= k:
+            tix += min(tickets[k], tickets[i])
+        else:
+            tix += min(tickets[k] - 1, tickets[i])
+    
+    return tix
