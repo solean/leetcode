@@ -38,3 +38,36 @@ def removeStones(stones: List[List[int]]) -> int:
     
     diff = len(stones) - connected
     return diff
+
+def removeStonesDFS(stones: List[List[int]]) -> int:
+    if len(stones) < 2:
+        return 0
+
+    adj = defaultdict(set)
+
+    for i in range(len(stones)):
+        for j in range(len(stones)):
+            if i == j:
+                continue
+            elif stones[i][0] == stones[j][0] or stones[i][1] == stones[j][1]:
+                adj[i].add(j)
+                adj[j].add(i)
+
+    visited = set()
+    num_connected = 0
+
+    def dfs(node):
+        if node in visited:
+            return
+
+        visited.add(node)
+        for neighbor in adj[node]:
+            dfs(neighbor)
+
+    for i in range(len(stones)):
+        if i not in visited:
+            dfs(i)
+            num_connected += 1
+
+    return len(stones) - num_connected
+
