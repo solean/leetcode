@@ -16,3 +16,34 @@ def canSortArrayON2(nums: List[int]) -> bool:
 
     return True
 
+def canSortArrayOptimal(nums: List[int]) -> bool:
+
+    def count_bits(n):
+        res = 0
+        while n:
+            res += n & 1
+            n = n >> 1
+        return res
+
+    curr_min = nums[0]
+    curr_max = nums[0]
+    prev_max = float("-inf")
+
+    for n in nums:
+        if bin(n).count("1") == bin(curr_min).count("1"):
+            curr_min = min(curr_min, n))
+            curr_max = min(curr_max, n))
+        else:
+            if curr_min < prev_max:
+                # can't swap
+                return False
+            else:
+                prev_max = curr_max
+                curr_min = n
+                curr_max = n
+
+    if curr_min < prev_max:
+        return False
+
+    return True
+
