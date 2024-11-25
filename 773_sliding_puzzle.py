@@ -6,8 +6,9 @@ def slidingPuzzle(board: List[List[int]]) -> int:
     solved = "123450"
     visited = set()
     q = deque()
-    q.append((board, 0))
+    q.append(board)
     dirs = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+    num_moves = 0
 
     def to_string(matrix):
         s = ""
@@ -18,7 +19,7 @@ def slidingPuzzle(board: List[List[int]]) -> int:
 
     while q:
         for _ in range(len(q)):
-            node, num_moves = q.popleft()
+            node = q.popleft()
             node_str = to_string(node)
             if node_str in visited:
                 continue
@@ -41,7 +42,9 @@ def slidingPuzzle(board: List[List[int]]) -> int:
                         new_board = copy.deepcopy(node)
                         new_board[zx][zy], new_board[nx][ny] = new_board[nx][ny], new_board[zx][zy]
                         if to_string(new_board) not in visited:
-                            q.append((new_board, num_moves + 1))
+                            q.append(new_board)
+
+        num_moves += 1
 
     return -1
 
