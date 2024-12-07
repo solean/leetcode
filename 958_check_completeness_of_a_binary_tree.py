@@ -1,6 +1,24 @@
 from misc import TreeNode
 from collections import deque
 
+def isCompleteTreeSimpler(root: TreeNode) -> bool:
+    q = deque([root])
+    null_found = False
+
+    while q:
+        for _ in range(len(q)):
+            node = q.popleft()
+            if node:
+                if null_found:
+                    return False
+                q.append(node.left)
+                q.append(node.right)
+            else:
+                null_found = True
+
+    return True
+
+
 def isCompleteTree(root: TreeNode) -> bool:
     levels = []
     q = deque([root])
