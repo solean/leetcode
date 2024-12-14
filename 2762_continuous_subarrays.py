@@ -25,6 +25,3 @@ def continuousSubarrays(nums: List[int]) -> int:
 
     return count
 
-
-ans = continuousSubarrays([5, 4, 2, 4])
-print(ans)
