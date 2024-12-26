@@ -1,4 +1,20 @@
 from typing import List
+from collections import defaultdict
+
+
+def findTargetSumWaysOptimal(nums: List[int], target: int) -> int:
+    dp = defaultdict(int)
+    dp[0] = 1
+
+    for i in range(len(nums)):
+        next_dp = defaultdict(int)
+        for curr_sum, count in dp.items():
+            next_dp[curr_sum + nums[i]] += count
+            next_dp[curr_sum - nums[i]] += count
+        dp = next_dp
+
+    return dp[target]
+
 
 def findTargetSumWays(nums: List[int], target: int) -> int:
     dp = {}
