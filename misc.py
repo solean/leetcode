@@ -117,6 +117,22 @@ class MinHeap():
         return root
 
 
+class UnionFind:
+    def __init__(self, size):
+        self.parents = [i for i in range(size)]
+
+    def union(self, a, b):
+        a_rep = self.find(a)
+        b_rep = self.find(b)
+        if a_rep != b_rep:
+            self.parents[a_rep] = b_rep
+
+    def find(self, n):
+        if self.parents[n] != n:
+            self.parents[n] = self.find(self.parents[n])
+        return self.parents[n]
+
+
 # O(log n) search
 def binary_search(arr, target):
     low = 0
@@ -130,6 +146,6 @@ def binary_search(arr, target):
             high = mid - 1
         else:
             return mid
-    
+
     return -1
 
