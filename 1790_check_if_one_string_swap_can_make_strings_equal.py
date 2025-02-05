@@ -13,3 +13,7 @@ def areAlmostEqual(s1: str, s2: str) -> bool:
 
     return False
 
+def twoLiner(s1, s2):
+    diffs = [[a, b] for a, b in zip(s1, s2) if a != b]
+    return not diffs or (len(diffs) == 2 and diffs[0] == list(reversed(diffs[1])))
+
