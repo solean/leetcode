@@ -12,3 +12,13 @@ def divideArray(nums: List[int]) -> bool:
 
     return True
 
+
+def divideArray2(nums):
+    counts = Counter(nums)
+
+    for count in counts.values():
+        if count % 2 != 0:
+            return False
+
+    return True
+
