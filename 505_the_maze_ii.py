@@ -10,8 +10,11 @@ def shortestDistance(maze: List[List[int]], start: List[int], destination: List[
 
     while minheap:
         dist, (x, y) = heapq.heappop(minheap)
+
         if [x, y] == destination:
             return dist
+        if dist != distances[x][y]:
+            continue
 
         for dx, dy in dirs:
             nx, ny = x, y
@@ -21,8 +24,8 @@ def shortestDistance(maze: List[List[int]], start: List[int], destination: List[
                 ny += dy
                 traveled += 1
 
-            if traveled and dist + traveled <= distances[nx][ny]:
-                heapq.heappush(minheap, (dist + traveled, [nx, ny]))
+            if traveled and dist + traveled < distances[nx][ny]:
+                heapq.heappush(minheap, (dist + traveled, (nx, ny)))
                 distances[nx][ny] = dist + traveled
 
 
